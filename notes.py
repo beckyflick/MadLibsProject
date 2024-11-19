@@ -19,18 +19,3 @@
 #All you have to do is mix __noun__ and __noun__ in a bowl until fluffy, and add __noun__. 
 # Don't forget the __noun__! __Verb__ them on a __noun__ and bake them at a __number__ degrees. 
 # After __ number__  minutes, you will have the perfect __noun__!
-
-import tkinter as tk
-window= tk.Tk()
-window.title("Mad Libs")
-label1= tk.Label(
-    window, 
-    text= "Enter words below:",
-    foreground= "white",
-    background= "purple",
-    width= 20, 
-    height= 10
-)
-
-
-window.mainloop()
