@@ -11,5 +11,7 @@ label1= tk.Label(
 )
 label1.pack()
 
+frame1= tk.Frame(window, bg="white", relief=tk.RAISED, borderwidth=25)
+frame1.pack()
 
 window.mainloop()
