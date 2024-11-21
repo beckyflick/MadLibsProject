@@ -1,6 +1,12 @@
 import tkinter as tk
 window= tk.Tk()
 window.title("Mad Libs")
+
+def hidden_story(widget):
+    widget.pack_forget()
+def show_story(widget):
+    widget.pack()
+
 label1= tk.Label(
     window, 
     text= "Enter words below:",
@@ -143,14 +149,43 @@ noun8_entry=tk.Entry(
 noun8_entry.insert(0, "Noun:")
 noun8_entry.pack()
 
+def hide_label():
+   label1.pack_forget()
+   noun1_entry.pack_forget()
+   noun2_entry.pack_forget()
+   noun3_entry.pack_forget()
+   noun4_entry.pack_forget()
+   noun5_entry.pack_forget()
+   noun6_entry.pack_forget()
+   noun7_entry.pack_forget()
+   noun8_entry.pack_forget()
+   verb1_entry.pack_forget()
+   verb2_entry.pack_forget()
+   verb3_entry.pack_forget()
+   adjective1_entry.pack_forget()
+   ing_entry.pack_forget()
+   num1_entry.pack_forget()
+   num2_entry.pack_forget()
+   fam_entry.pack_forget()
+
+def storytime():
+    print(f"Every year, {noun1_entry} we make at Christmas time.\n{verb1_entry} has been a tradition since I was a/an {adjective1_entry} kid!\n{fam_entry} used to make most of the recipe back then, but I would always help {verb2_entry} {ing_entry}.\n Now that I'm older, I make the entire batch of {noun2_entry} from scratch.\n All you have to do is mix {noun3_entry} and {noun4_entry} in a bowl until fluffy, and add {noun5_entry}.\n Don't forget the {noun6_entry}! {verb3_entry} them on a {noun7_entry} and bake them at a {num1_entry} degrees.\n After {num2_entry} minutes, you will have the perfect {noun8_entry}!")  
+
+story= tk.Label(window, bg="white", width= 50, height=50, text=storytime())
+hidden_story(story)
+
 button=tk.Button(
     window,
     text = "Submit",
     fg="white",
     bg= "purple",
     width = 10,
-    height = 2
-)
+    height = 2, 
+    command=hide_label()
+    )
 button.pack()
+
+show_story(story)
+
 
 window.mainloop()
