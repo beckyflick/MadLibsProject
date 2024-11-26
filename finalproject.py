@@ -7,6 +7,10 @@ def hidden_story(widget):
 def show_story(widget):
     widget.pack()
 
+def main():
+    hide_label()
+    show_story(story)
+
 label1= tk.Label(
     window, 
     text= "Enter words below:",
@@ -171,7 +175,9 @@ def hide_label():
 def storytime():
     print(f"Every year, {noun1_entry} we make at Christmas time.\n{verb1_entry} has been a tradition since I was a/an {adjective1_entry} kid!\n{fam_entry} used to make most of the recipe back then, but I would always help {verb2_entry} {ing_entry}.\n Now that I'm older, I make the entire batch of {noun2_entry} from scratch.\n All you have to do is mix {noun3_entry} and {noun4_entry} in a bowl until fluffy, and add {noun5_entry}.\n Don't forget the {noun6_entry}! {verb3_entry} them on a {noun7_entry} and bake them at a {num1_entry} degrees.\n After {num2_entry} minutes, you will have the perfect {noun8_entry}!")  
 
-story= tk.Label(window, bg="white", width= 50, height=50, text=storytime())
+
+
+story=tk.Label(window, bg="white", width= 50, height=50, text= storytime)
 hidden_story(story)
 
 button=tk.Button(
@@ -181,9 +187,11 @@ button=tk.Button(
     bg= "purple",
     width = 10,
     height = 2, 
-    command=hide_label()
+    command= main
     )
 button.pack()
+
+
 
 show_story(story)
 
