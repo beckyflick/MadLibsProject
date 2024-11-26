@@ -10,6 +10,8 @@ def show_story(widget):
 
 def main():
     hide_label()
+    #add a loop here to call each function grabbing the text here so taht we put the text in after we close the window
+    #loop thru and find() the ":" and then grab that text [#:] so that it goes until the end
     storytime()
     show_story()
 
@@ -36,7 +38,7 @@ noun1_entry=tk.Entry(
 noun1_entry.insert(0,"Noun:")
 noun1_entry.pack()
 noun1= noun1_entry.get()
-full_noun= noun1[5:100]
+full_noun= noun1[5:]
 #figure out how to grab the text that is put in but not list the Noun: label
 
 verb1_entry=tk.Entry(
