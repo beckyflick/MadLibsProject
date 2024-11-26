@@ -6,10 +6,14 @@ def hidden_story(widget):
     widget.pack_forget()
 def show_story(widget):
     widget.pack()
+    
 
 def main():
     hide_label()
-    show_story(story)
+    storytime()
+    show_story()
+
+
 
 label1= tk.Label(
     window, 
@@ -31,6 +35,9 @@ noun1_entry=tk.Entry(
 
 noun1_entry.insert(0,"Noun:")
 noun1_entry.pack()
+noun1= noun1_entry.get()
+full_noun= noun1[5:100]
+#figure out how to grab the text that is put in but not list the Noun: label
 
 verb1_entry=tk.Entry(
     window,
@@ -39,6 +46,7 @@ verb1_entry=tk.Entry(
 
 verb1_entry.insert(0, "Verb ending in -ing:")
 verb1_entry.pack()
+verb1= verb1_entry.get()
 
 adjective1_entry=tk.Entry(
     window,
@@ -47,6 +55,7 @@ adjective1_entry=tk.Entry(
 
 adjective1_entry.insert(0, "Adjective:")
 adjective1_entry.pack()
+adjective1= adjective1_entry.get()
 
 fam_entry=tk.Entry(
     window,
@@ -55,6 +64,7 @@ fam_entry=tk.Entry(
 
 fam_entry.insert(0, "Family Member:")
 fam_entry.pack()
+fam=fam_entry.get()
 
 verb2_entry=tk.Entry(
     window,
@@ -63,6 +73,7 @@ verb2_entry=tk.Entry(
 
 verb2_entry.insert(0, "Verb:")
 verb2_entry.pack()
+verb2= verb2_entry.get()
 
 ing_entry=tk.Entry(
     window,
@@ -71,6 +82,7 @@ ing_entry=tk.Entry(
 
 ing_entry.insert(0, "Ingredient:")
 ing_entry.pack()
+ing=ing_entry.get()
 
 noun2_entry=tk.Entry(
     window,
@@ -79,6 +91,7 @@ noun2_entry=tk.Entry(
 
 noun2_entry.insert(0, "Noun:")
 noun2_entry.pack()
+noun2= noun2_entry.get()
 
 noun3_entry=tk.Entry(
     window,
@@ -87,6 +100,7 @@ noun3_entry=tk.Entry(
 
 noun3_entry.insert(0, "Noun:")
 noun3_entry.pack()
+noun3= noun3_entry.get()
 
 noun4_entry=tk.Entry(
     window,
@@ -94,7 +108,7 @@ noun4_entry=tk.Entry(
     bg = "white")
 noun4_entry.insert(0, "Noun:")
 noun4_entry.pack()
-
+noun4= noun4_entry.get()
 
 noun5_entry=tk.Entry(
     window,
@@ -103,7 +117,7 @@ noun5_entry=tk.Entry(
 
 noun5_entry.insert(0, "Noun:")
 noun5_entry.pack()
-
+noun5= noun5_entry.get()
 
 noun6_entry=tk.Entry(
     window,
@@ -112,6 +126,7 @@ noun6_entry=tk.Entry(
 
 noun6_entry.insert(0, "Noun:")
 noun6_entry.pack()
+noun6= noun6_entry.get()
 
 verb3_entry=tk.Entry(
     window,
@@ -120,6 +135,7 @@ verb3_entry=tk.Entry(
 
 verb3_entry.insert(0, "Verb:")
 verb3_entry.pack()
+verb3= verb3_entry.get()
 
 noun7_entry=tk.Entry(
     window,
@@ -128,6 +144,7 @@ noun7_entry=tk.Entry(
 
 noun7_entry.insert(0, "Noun:")
 noun7_entry.pack()
+noun7= noun7_entry.get()
 
 num1_entry=tk.Entry(
     window,
@@ -136,6 +153,7 @@ num1_entry=tk.Entry(
 
 num1_entry.insert(0, "Number:")
 num1_entry.pack()
+num1= num1_entry.get()
 
 num2_entry=tk.Entry(
     window,
@@ -144,6 +162,7 @@ num2_entry=tk.Entry(
 
 num2_entry.insert(0, "Number:")
 num2_entry.pack()
+num2= num2_entry.get()
 
 noun8_entry=tk.Entry(
     window,
@@ -152,6 +171,7 @@ noun8_entry=tk.Entry(
 
 noun8_entry.insert(0, "Noun:")
 noun8_entry.pack()
+noun8= noun8_entry.get()
 
 def hide_label():
    label1.pack_forget()
@@ -173,12 +193,16 @@ def hide_label():
    fam_entry.pack_forget()
 
 def storytime():
-    print(f"Every year, {noun1_entry} we make at Christmas time.\n{verb1_entry} has been a tradition since I was a/an {adjective1_entry} kid!\n{fam_entry} used to make most of the recipe back then, but I would always help {verb2_entry} {ing_entry}.\n Now that I'm older, I make the entire batch of {noun2_entry} from scratch.\n All you have to do is mix {noun3_entry} and {noun4_entry} in a bowl until fluffy, and add {noun5_entry}.\n Don't forget the {noun6_entry}! {verb3_entry} them on a {noun7_entry} and bake them at a {num1_entry} degrees.\n After {num2_entry} minutes, you will have the perfect {noun8_entry}!")  
+    text_box = tk.Text()
+    text_box.pack()
+    text_box.insert("1.0", string())
 
+def string():
+    return (f"Every year, {full_noun} we make at Christmas time.\n{verb1} has been a tradition since I was a/an {adjective1} kid!\n{fam} used to make most of the recipe back then, but I would always help {verb2} {ing}.\n Now that I'm older, I make the entire batch of {noun2} from scratch.\n All you have to do is mix {noun3} and {noun4} in a bowl until fluffy, and add {noun5}.\n Don't forget the {noun6}! {verb3} them on a {noun7} and bake them at a {num1} degrees.\n After {num2} minutes, you will have the perfect {noun8}!")
+   
 
-
-story=tk.Label(window, bg="white", width= 50, height=50, text= storytime)
-hidden_story(story)
+# story=tk.Label(window, bg="white", width= 50, height=50, text= storytime)
+# hidden_story(story)
 
 button=tk.Button(
     window,
@@ -193,7 +217,6 @@ button.pack()
 
 
 
-show_story(story)
 
 
 window.mainloop()
