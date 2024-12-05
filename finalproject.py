@@ -21,6 +21,67 @@ def main():
     full_line=noun1_entry.get()
     global noun1
     noun1=full_line[5:]
+
+    line_v1=verb1_entry.get()
+    global verb1
+    verb1=line_v1[20:]
+
+    line_adj1=adjective1_entry.get()
+    global adjective1
+    adjective1=line_adj1[10:]
+
+    line_fam=fam_entry.get()
+    global fam
+    fam=line_fam[14:]
+
+    line_v2=verb2_entry.get()
+    global verb2
+    verb2=line_v2[5:]   
+    
+    line_ing=ing_entry.get()
+    global ing
+    ing=line_ing[11:]
+
+    line_n2=noun2_entry.get()
+    global noun2
+    noun2=line_n2[5:]
+
+    line_n3=noun3_entry.get()
+    global noun3
+    noun3=line_n3[5:]
+
+    line_n4=noun4_entry.get()
+    global noun4
+    noun4=line_n4[5:]
+
+    line_n5=noun5_entry.get()
+    global noun5
+    noun5=line_n5[5:]
+
+    line_n6=noun6_entry.get()
+    global noun6
+    noun6=line_n6[5:]
+
+    line_v3=verb3_entry.get()
+    global verb3
+    verb3=line_v3[5:]
+
+    line_n7=noun7_entry.get()
+    global noun7
+    noun7=line_n7[5:]
+
+    line_num1=num1_entry.get()
+    global num1
+    num1=line_num1[7:]
+
+    line_num2=num2_entry.get()
+    global num2
+    num2=line_num2[7:]
+
+    line_n8=noun8_entry.get()
+    global noun8
+    noun8=line_n8[5:]
+    
 #repeat what is above for every entry and have it print in f string below
 
     storytime()
