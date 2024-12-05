@@ -81,6 +81,10 @@ def main():
     line_n8=noun8_entry.get()
     global noun8
     noun8=line_n8[5:]
+
+    # storytext=text_box.get()
+
+
     
 #repeat what is above for every entry and have it print in f string below
 
@@ -248,6 +252,7 @@ noun8_entry.pack()
 noun8= noun8_entry.get()
 
 def storytime():
+    global text_box
     text_box = tk.Text(width=100)
     text_box.pack()
     text_box.insert("1.0", string())
@@ -273,22 +278,20 @@ button.pack()
 list=[label1, button, noun1_entry, noun2_entry, noun3_entry, noun4_entry, noun5_entry, noun6_entry, noun7_entry, noun8_entry, verb1_entry, verb2_entry, verb3_entry, adjective1_entry, ing_entry, num1_entry, num2_entry, fam_entry]
 
 
-#FOR THE TEXT TO SPEECH
-#from gtts import gTTS
-#import os
-# The text that you want to convert to audio
+# #FOR THE TEXT TO SPEECH
+# from gtts import gTTS
 # mytext = 'Welcome to geeksforgeeks Joe!'
-# Language in which you want to convert
+# # Language in which you want to convert
 # language = 'en'
-# Passing the text and language to the engine, 
-# here we have marked slow=False. Which tells 
-# the module that the converted audio should 
-# have a high speed
-# myobj = gTTS(text=mytext, lang=language, slow=False)
-# Saving the converted audio in a mp3 file named
-# welcome
+# # Passing the text and language to the engine, 
+# # here we have marked slow=False. Which tells 
+# # the module that the converted audio should 
+# # have a high speed
+# myobj = gTTS(text=storytext, lang=language, slow=False)
+# # Saving the converted audio in a mp3 file named
+# # welcome
 # myobj.save("welcome.mp3")
-# Playing the converted file
+# # Playing the converted file
 # os.system("start welcome.mp3")
 
 window.mainloop()
