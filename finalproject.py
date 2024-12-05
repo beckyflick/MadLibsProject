@@ -8,6 +8,9 @@ import tkinter as tk
 window= tk.Tk()
 window.title("Mad Libs")
 
+from gtts import gTTS
+import os
+
 # def hidden_story(widget):
 #     widget.pack_forget()
 # def show_story(widget):
@@ -73,6 +76,8 @@ def main():
     line_num1=num1_entry.get()
     global num1
     num1=line_num1[7:]
+    #use logic here
+    #if need to, say input #1-10
 
     line_num2=num2_entry.get()
     global num2
@@ -83,8 +88,6 @@ def main():
     noun8=line_n8[5:]
 
     # storytext=text_box.get()
-
-
     
 #repeat what is above for every entry and have it print in f string below
 
@@ -255,10 +258,12 @@ def storytime():
     global text_box
     text_box = tk.Text(width=100)
     text_box.pack()
-    text_box.insert("1.0", string())
+    string=(f"Every year, {noun1} we make at Christmas time.\n{verb1} has been a tradition since I was a/an {adjective1} kid!\n{fam} used to make most of the recipe back then, but I would always help {verb2} {ing}.\nNow that I'm older, I make the entire batch of {noun2} from scratch.\nAll you have to do is mix {noun3} and {noun4} in a bowl until fluffy, and add {noun5}.\nDon't forget the {noun6}! {verb3} them on a {noun7} and bake them at a {num1} degrees.\nAfter {num2} minutes, you will have the perfect {noun8}!")
+    text_box.insert("1.0", string)
+    read_aloud(string)
 
-def string():
-    return (f"Every year, {noun1} we make at Christmas time.\n{verb1} has been a tradition since I was a/an {adjective1} kid!\n{fam} used to make most of the recipe back then, but I would always help {verb2} {ing}.\nNow that I'm older, I make the entire batch of {noun2} from scratch.\nAll you have to do is mix {noun3} and {noun4} in a bowl until fluffy, and add {noun5}.\nDon't forget the {noun6}! {verb3} them on a {noun7} and bake them at a {num1} degrees.\nAfter {num2} minutes, you will have the perfect {noun8}!")
+# def string():
+#     return (f"Every year, {noun1} we make at Christmas time.\n{verb1} has been a tradition since I was a/an {adjective1} kid!\n{fam} used to make most of the recipe back then, but I would always help {verb2} {ing}.\nNow that I'm older, I make the entire batch of {noun2} from scratch.\nAll you have to do is mix {noun3} and {noun4} in a bowl until fluffy, and add {noun5}.\nDon't forget the {noun6}! {verb3} them on a {noun7} and bake them at a {num1} degrees.\nAfter {num2} minutes, you will have the perfect {noun8}!")
    
 
 # story=tk.Label(window, bg="white", width= 50, height=50, text= storytime)
@@ -278,20 +283,11 @@ button.pack()
 list=[label1, button, noun1_entry, noun2_entry, noun3_entry, noun4_entry, noun5_entry, noun6_entry, noun7_entry, noun8_entry, verb1_entry, verb2_entry, verb3_entry, adjective1_entry, ing_entry, num1_entry, num2_entry, fam_entry]
 
 
-# #FOR THE TEXT TO SPEECH
-# from gtts import gTTS
-# mytext = 'Welcome to geeksforgeeks Joe!'
-# # Language in which you want to convert
-# language = 'en'
-# # Passing the text and language to the engine, 
-# # here we have marked slow=False. Which tells 
-# # the module that the converted audio should 
-# # have a high speed
-# myobj = gTTS(text=storytext, lang=language, slow=False)
-# # Saving the converted audio in a mp3 file named
-# # welcome
-# myobj.save("welcome.mp3")
-# # Playing the converted file
-# os.system("start welcome.mp3")
+#FOR THE TEXT TO SPEECH
+def read_aloud(x):
+    language = 'en'
+    myobj = gTTS(text=x, lang=language, slow=False)
+    myobj.save("welcome.mp3")
+    os.system("start welcome.mp3")
 
 window.mainloop()
