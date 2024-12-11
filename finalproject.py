@@ -1,21 +1,9 @@
-#to do:
-    #make sure have something from every week (logic week)
-    #finish f string piece
-    #text to speech
-    #solidify what 3 we are presenting on/who will present what 
-
 import tkinter as tk
 window= tk.Tk()
 window.title("Mad Libs")
 
 from gtts import gTTS
-import os
-
-# def hidden_story(widget):
-#     widget.pack_forget()
-# def show_story(widget):
-#     widget.pack()
-    
+import os   
 
 def main():
     for x in list:
@@ -75,9 +63,11 @@ def main():
 
     line_num1=num1_entry.get()
     global num1
-    num1=line_num1[7:]
-    #use logic here
-    #if need to, say input #1-10
+    num1=line_num1[12:]
+    if num1.isdigit():
+        return int(num1)
+    # else:
+    #     continue
 
     line_num2=num2_entry.get()
     global num2
@@ -87,12 +77,7 @@ def main():
     global noun8
     noun8=line_n8[5:]
 
-    # storytext=text_box.get()
-    
-#repeat what is above for every entry and have it print in f string below
-
     storytime()
-    # show_story()
 
 
 
@@ -116,9 +101,6 @@ noun1_entry=tk.Entry(
 
 noun1_entry.insert(0,"Noun:")
 noun1_entry.pack()
-
-
-#figure out how to grab the text that is put in but not list the Noun: label
 
 verb1_entry=tk.Entry(
     window,
@@ -232,7 +214,7 @@ num1_entry=tk.Entry(
     fg = "green",
     bg = "white")
 
-num1_entry.insert(0, "Number:")
+num1_entry.insert(0, "Number 1-10:")
 num1_entry.pack()
 num1= num1_entry.get()
 
@@ -241,7 +223,7 @@ num2_entry=tk.Entry(
     fg = "green",
     bg = "white")
 
-num2_entry.insert(0, "Number:")
+num2_entry.insert(0, "Number 1-10:")
 num2_entry.pack()
 num2= num2_entry.get()
 
@@ -262,12 +244,6 @@ def storytime():
     text_box.insert("1.0", string)
     read_aloud(string)
 
-# def string():
-#     return (f"Every year, {noun1} we make at Christmas time.\n{verb1} has been a tradition since I was a/an {adjective1} kid!\n{fam} used to make most of the recipe back then, but I would always help {verb2} {ing}.\nNow that I'm older, I make the entire batch of {noun2} from scratch.\nAll you have to do is mix {noun3} and {noun4} in a bowl until fluffy, and add {noun5}.\nDon't forget the {noun6}! {verb3} them on a {noun7} and bake them at a {num1} degrees.\nAfter {num2} minutes, you will have the perfect {noun8}!")
-   
-
-# story=tk.Label(window, bg="white", width= 50, height=50, text= storytime)
-# hidden_story(story)
 
 button=tk.Button(
     window,
@@ -282,8 +258,6 @@ button.pack()
 
 list=[label1, button, noun1_entry, noun2_entry, noun3_entry, noun4_entry, noun5_entry, noun6_entry, noun7_entry, noun8_entry, verb1_entry, verb2_entry, verb3_entry, adjective1_entry, ing_entry, num1_entry, num2_entry, fam_entry]
 
-
-#FOR THE TEXT TO SPEECH
 def read_aloud(x):
     language = 'en'
     myobj = gTTS(text=x, lang=language, slow=False)
