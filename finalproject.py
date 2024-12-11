@@ -63,14 +63,15 @@ def main():
 
     line_num1=num1_entry.get()
     global num1
-    num1=line_num1[12:]
     if num1.isdigit():
-        return int(num1)
-    # else:
-    #     continue
+       int(line_num1)
+    num1=line_num1[7:]
+
 
     line_num2=num2_entry.get()
     global num2
+    if num2.isdigit():
+       int(line_num2)
     num2=line_num2[7:]
 
     line_n8=noun8_entry.get()
@@ -214,7 +215,7 @@ num1_entry=tk.Entry(
     fg = "green",
     bg = "white")
 
-num1_entry.insert(0, "Number 1-10:")
+num1_entry.insert(0, "Number:")
 num1_entry.pack()
 num1= num1_entry.get()
 
@@ -223,7 +224,7 @@ num2_entry=tk.Entry(
     fg = "green",
     bg = "white")
 
-num2_entry.insert(0, "Number 1-10:")
+num2_entry.insert(0, "Number:")
 num2_entry.pack()
 num2= num2_entry.get()
 
